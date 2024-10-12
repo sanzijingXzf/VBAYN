@@ -1,45 +1,46 @@
-Sub 查找相同填充色单元格()
-    Dim searchRange As Range
-    Dim sampleCell As Range
-    Dim cell As Range
-    Dim fillColor As Long
-    Dim foundCells As Range
-    
-    ' 用户输入单元格区域
-    On Error Resume Next
-    Set searchRange = Application.InputBox("请输入单元格区域 (例如 A1:A10)", "选择单元格区域", Type:=8)
-    On Error GoTo 0
-    
-    ' 检查用户是否取消输入框
-    If searchRange Is Nothing Then Exit Sub
-    
-    ' 用户选择示例单元格
-    On Error Resume Next
-    Set sampleCell = Application.InputBox("请选择示例单元格", "选择示例单元格", Type:=8)
-    On Error GoTo 0
-    
-    ' 检查用户是否取消输入框
-    If sampleCell Is Nothing Then Exit Sub
-    
-    ' 获取示例单元格的填充色
-    fillColor = sampleCell.Interior.Color
-    
-    ' 查找与示例单元格填充色相同的单元格
-    For Each cell In searchRange
-        If cell.Interior.Color = fillColor Then
-            If foundCells Is Nothing Then
-                Set foundCells = cell
-            Else
-                Set foundCells = Union(foundCells, cell)
-            End If
-        End If
-    Next cell
-    
-    ' 选中相同颜色的单元格
-    If Not foundCells Is Nothing Then
-        foundCells.Select
-        MsgBox "已找到并选中填充色相同的单元格。", vbInformation
-    Else
-        MsgBox "在指定的区域中没有找到填充色相同的单元格。", vbExclamation
-    End If
+Sub 查找相同填充色单元格() & vbCrLf _
+Dim searchRange As Range & vbCrLf _
+Dim sampleCell As Range & vbCrLf _
+Dim cell As Range & vbCrLf _
+Dim fillColor As Long & vbCrLf _
+Dim foundCells As Range & vbCrLf _
+ & vbCrLf _
+' 用户输入单元格区域 & vbCrLf _
+On Error Resume Next & vbCrLf _
+Set searchRange = Application.InputBox("请输入单元格区域 (例如 A1:A10)", "选择单元格区域", Type:=8) & vbCrLf _
+On Error GoTo 0 & vbCrLf _
+ & vbCrLf _
+' 检查用户是否取消输入框 & vbCrLf _
+If searchRange Is Nothing Then Exit Sub & vbCrLf _
+ & vbCrLf _
+' 用户选择示例单元格 & vbCrLf _
+On Error Resume Next & vbCrLf _
+Set sampleCell = Application.InputBox("请选择示例单元格", "选择示例单元格", Type:=8) & vbCrLf _
+On Error GoTo 0 & vbCrLf _
+ & vbCrLf _
+' 检查用户是否取消输入框 & vbCrLf _
+If sampleCell Is Nothing Then Exit Sub & vbCrLf _
+ & vbCrLf _
+' 获取示例单元格的填充色 & vbCrLf _
+fillColor = sampleCell.Interior.Color & vbCrLf _
+ & vbCrLf _
+' 查找与示例单元格填充色相同的单元格 & vbCrLf _
+For Each cell In searchRange & vbCrLf _
+If cell.Interior.Color = fillColor Then & vbCrLf _
+If foundCells Is Nothing Then & vbCrLf _
+Set foundCells = cell & vbCrLf _
+Else & vbCrLf _
+Set foundCells = Union(foundCells, cell) & vbCrLf _
+End If & vbCrLf _
+End If & vbCrLf _
+Next cell & vbCrLf _
+ & vbCrLf _
+' 选中相同颜色的单元格 & vbCrLf _
+If Not foundCells Is Nothing Then & vbCrLf _
+foundCells.Select & vbCrLf _
+MsgBox "已找到并选中填充色相同的单元格。", vbInformation & vbCrLf _
+Else & vbCrLf _
+MsgBox "在指定的区域中没有找到填充色相同的单元格。", vbExclamation & vbCrLf _
+End If & vbCrLf _
+
 End Sub
