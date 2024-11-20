@@ -1,4 +1,4 @@
-'*$*version1.0*$* & vbCrLf _
+'*$*version1.1*$* & vbCrLf _
 Sub 查找相同填充色单元格() & vbCrLf _
 Dim searchRange As Range & vbCrLf _
 Dim sampleCell As Range & vbCrLf _
